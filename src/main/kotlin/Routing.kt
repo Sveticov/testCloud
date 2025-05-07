@@ -8,8 +8,16 @@ import io.ktor.server.routing.*
 
 fun Application.configureRouting() {
     routing {
-        get("/test/cloud") {
-            call.respondText("Hello World!")
+        get("/") {
+            call.respondText("First entered")
+        }
+        get("/show/list") {
+            val product: Product = Product(
+                "1qw34rds",
+                "Tomato",
+                12.4f,
+                "Fresh tomato")
+            call.respond(product)
         }
     }
 }
